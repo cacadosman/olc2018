@@ -8,6 +8,7 @@
 
     /*
         input
+        validation data if needed
     */
 
     $ktp["nama"] = $_GET["nama"];
@@ -22,6 +23,26 @@
 
     $ktp["ttl"] = $ktp["tempat_lahir"] . " , " . $ktp["tanggal_lahir"];
 
+    function jenisKelamin($sex){
+        if($sex){
+            return "perempuan";
+        }else{
+            return "laki-laki";
+        }
+    }
+
+    // function testRecursive($nomor){
+    //     if($nomor<10){
+    //         $nomor++;
+    //         echo $nomor;
+    //         echo "<br />";
+    //         testRecursive($nomor);
+    //     }
+    // }
+
+    // testRecursive(0);
+    // exit;
+
     /*
         output
     */
@@ -29,15 +50,7 @@
     function writeData($data){
         echo $data;
         echo "<br />";
-        // echo "<hr />";
-    }
-    
-    function jenisKelamin($sex){
-        if($sex){
-            return "perempuan";
-        }else{
-            return "laki-laki";
-        }
+        echo "<hr />";
     }
 
     writeData("<h2>Profile</h2>");
@@ -48,8 +61,10 @@
     // echo "<h2>Profile</h2>";
     // echo "Nama : " . $ktp["nama"];
     // echo "<br />";
+    // echo "<hr />";
     // echo "Alamat :" . $ktp["alamat"];
     // echo "<br />";
-    // echo "Jenis Kelamin : " . $ktp["jk"];
-    // echo "<br />";
+    // echo "<hr />";
+    // // echo "Jenis Kelamin : " . $ktp["jk"];
+    // // echo "<br />";
     // echo "Ttl : " . $ktp["ttl"];
