@@ -1,21 +1,35 @@
 <?php
+    session_start();
+    include_once "route.php";
 
-//include profile php
-include_once "profile.php";
-//include sekolah
-include_once "sekolah.php";
-//include orang tua
-include_once "orangtua.php";
+    if(isset($_GET["page"])){
+        $page = $_GET["page"];
 
-$objKtp = new Profile();
-$objKtp->setNama("Dyan Galih Nugroho");
-//$objKtp->setNamaSekolah("TK");
+        if($page == "profile"){
+            $profile = new Profile();
+            $profile->setNama("fadli");
+            echo $profile->getNama();
+        }elseif($page == "sekolah"){
+            $sekolah = new Sekolah();
+            $sekolah->setAlamat("Jl. abcd");
+            echo $sekolah->getAlamat();
+        }elseif($page == "login"){
+            include_once "login_form.php";
+        }elseif($page == "admin"){
+            include_once "admin.php";
+        }else{
+            echo "Halaman tidak ditemukan";
+        }
+    }elseif(isset($_GET["action"])){
+        $action = $_GET["action"];
 
-$objKtpTeman = new Profile();
-$objKtpTeman->setNama("Nama teman");
-
-echo $objKtpTeman->getNama();
-echo "<br />";
-echo $objKtp->getNama();
-//echo $objKtp->getNamaSekolah();
-
+        if($action == "login"){
+            include_once "login.php";
+        }elseif($action == "logout"){
+            include_once "logout.php";
+        }else{
+            echo "Aksi tidak ditemukan";
+        }
+    }else{
+        echo "Selamat datang di web ini.";
+    }
