@@ -4,4 +4,4 @@
     }
 ?>
 
-<h1>Selamat datang admin</h1>
+<h1>Welcome Admin</h1>
